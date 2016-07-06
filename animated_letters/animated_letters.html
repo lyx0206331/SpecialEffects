@@ -1,0 +1,63 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>演示：非常棒的SVG文字动画特效</title>
+<meta name="keywords" content="jquery" />
+<meta name="description" content="Helloweba演示平台，演示XHTML、CSS、jquery、PHP案例和示例" />
+<link rel="stylesheet" type="text/css" href="http://www.helloweba.com/demo/css/main.css" />
+<style type="text/css">
+.demo{width:80%;margin:50px auto 10px auto;padding:10px;}
+.demo p{line-height:30px;text-indent:2em}
+.demo h3{font-size:24px;text-align:center;padding:10px}
+@media (max-width: 480px){
+	.demo{width:360px;margin:50px auto 10px auto;padding:10px;}
+	.demo img{width:90%}
+	.demo h3{font-size:1.5em;line-height:1.9em}
+}
+
+</style>
+<script src="animated_letters_segment.min.js"></script>
+<script src="animated_letters_d3-ease.v0.6.js"></script>
+<script src="animated_letters.js"></script>
+</head>
+
+<body>
+<div id="header">
+   <div id="logo"><h1><a href="http://www.helloweba.com" title="返回helloweba首页">helloweba</a></h1></div>
+</div>
+
+<div id="main">
+   <h2 class="top_title"><a href="http://www.helloweba.com/view-blog-355.html">非常棒的SVG文字动画特效</a></h2>
+	<div class="demo">
+		<div class="text">Anne</div>
+	</div>
+</div>
+<script>
+//选择元素
+var el = document.querySelector('.text');
+ 
+//每个选项可以定义为单个也可以定义为数组
+var options = {
+    size: 200,         // 字体大小，决定文字的高度，px
+    weight: 5,         // 粗体，px
+    rounded: false,    // 字母结尾圆角
+    color: ['#f90','#5F6062'],  // 字体颜色
+    duration: 1,       // 每个字母的动画展示时长 (seconds)
+    delay: [0, 0.1],  // 每个字母间的动画延时
+    fade: 0.5,         // 渐显效果的时长(seconds)
+    easing: d3_ease.easeCubicInOut.ease,   // 缓冲动画效果
+    individualDelays: false     // 默认false，如果设置成false，则动画效果会从左到右过度展示，如果是true，字母动画效果是同步展示
+};
+ 
+var myText = new Letters(el, options);
+
+myText.show();
+</script>
+<div id="footer">
+    <p>Powered by helloweba.com  允许转载、修改和使用本站的DEMO，但请注明出处：<a href="http://www.helloweba.com">www.helloweba.com</a></p>
+</div>
+</body>
+</html>
